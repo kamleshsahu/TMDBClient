@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="spinnerAdapter"
+            type="android.widget.ArrayAdapter" />
+        <variable
+            name="clickHandlers"
+            type="com.example.tmdbclient.MainActivity.MainActivityClickHandlers" />
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/colorPrimary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.tmdbclient.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:layout_marginTop="15dp">
+
+    <android.support.v7.widget.SearchView
+        android:layout_width="match_parent"
+        android:id="@+id/searchBeer"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.SearchView>
+
+    <Button
+        android:id="@+id/sort"
+        android:tag="0"
+        android:text="Ascending"
+        android:layout_below="@+id/searchBeer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickHandlers::sort}"/>
+
+    <include
+        android:id="@+id/secondary_layout"
+        layout="@layout/content_main"
+        bind:secondarySpinnerAdapter="@{spinnerAdapter}"
+        bind:secondaryClickHandler="@{clickHandlers}"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/sort"
+        />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="wrap_content"
+
+        android:layout_below="@+id/secondary_layout"
+        android:id="@+id/swipe_layout"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMovies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+ </RelativeLayout>
+
+
+</layout>
