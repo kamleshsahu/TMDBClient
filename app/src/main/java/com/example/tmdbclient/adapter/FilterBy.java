@@ -1,4 +1,4 @@
-package com.example.tmdbclient.Adapter;
+package com.example.tmdbclient.adapter;
 
 public enum FilterBy {
     Style,SearchKeyword

@@ -1,17 +1,19 @@
-package com.example.tmdbclient.Adapter;
+package com.example.tmdbclient.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 
 import com.example.tmdbclient.Beer;
-import com.example.tmdbclient.Model.BeerStyle;
+import com.example.tmdbclient.CartActivity;
 import com.example.tmdbclient.R;
 import com.example.tmdbclient.databinding.BeerListItemBinding;
 
@@ -67,19 +69,19 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.MovieViewHolde
         public MovieViewHolder(@NonNull BeerListItemBinding movieListItemBinding) {
             super(movieListItemBinding.getRoot());
             this.movieListItemBinding=movieListItemBinding;
-//            movieListItemBinding.getRoot().setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int position=getAdapterPosition();
-//                    if(position!=RecyclerView.NO_POSITION){
-//                        Beer selectedMovie= beerList.get(position);
-//
-//                        Intent intent=new Intent(context, MovieActivity.class);
-//                        intent.putExtra("movie",selectedMovie);
-//                        context.startActivity(intent);
-//                    }
-//                }
-//            });
+            movieListItemBinding.addtoCart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position=getAdapterPosition();
+                    if(position!=RecyclerView.NO_POSITION){
+                        Beer selectedMovie= beerList.get(position);
+
+                        Intent intent=new Intent(context, CartActivity.class);
+                        intent.putExtra("beer",selectedMovie);
+                        context.startActivity(intent);
+                    }
+                }
+            });
 
 
         }

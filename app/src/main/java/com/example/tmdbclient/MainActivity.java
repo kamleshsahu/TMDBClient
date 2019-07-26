@@ -2,7 +2,7 @@ package com.example.tmdbclient;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.res.Configuration;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -20,11 +20,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.tmdbclient.Adapter.BeerAdapter;
+import com.example.tmdbclient.adapter.BeerAdapter;
 
-import com.example.tmdbclient.Adapter.FilterBy;
-import com.example.tmdbclient.Model.BeerStyle;
-import com.example.tmdbclient.ViewModel.MainActivityViewModel;
+import com.example.tmdbclient.adapter.FilterBy;
+import com.example.tmdbclient.model.BeerStyle;
+import com.example.tmdbclient.viewModel.MainActivityViewModel;
 import com.example.tmdbclient.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
@@ -183,6 +183,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_cart) {
+            Intent intent=new Intent(MainActivity.this,CartActivity.class);
+
+            startActivity(intent);
             return true;
         }
 

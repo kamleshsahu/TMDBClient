@@ -1,4 +1,4 @@
-package com.example.tmdbclient.Service;
+package com.example.tmdbclient.service;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

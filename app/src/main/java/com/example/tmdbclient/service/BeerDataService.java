@@ -1,4 +1,4 @@
-package com.example.tmdbclient.Service;
+package com.example.tmdbclient.service;
 
 import com.example.tmdbclient.Beer;
 

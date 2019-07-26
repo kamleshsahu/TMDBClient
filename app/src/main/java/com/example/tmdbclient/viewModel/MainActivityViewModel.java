@@ -1,4 +1,4 @@
-package com.example.tmdbclient.ViewModel;
+package com.example.tmdbclient.viewModel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
@@ -6,7 +6,7 @@ import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
 import com.example.tmdbclient.Beer;
-import com.example.tmdbclient.Model.BeerRepository;
+import com.example.tmdbclient.model.BeerRepository;
 
 import java.util.List;
 

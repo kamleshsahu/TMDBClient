@@ -1,34 +1,78 @@
 package com.example.tmdbclient;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Beer
+
+
+@Entity(tableName = "cart_table")
+public class Beer extends BaseObservable implements Parcelable
 {
 
     @SerializedName("abv")
     @Expose
+    @ColumnInfo(name = "abv")
     private String abv;
 
     @SerializedName("ounces")
     @Expose
+    @ColumnInfo(name = "ounces")
     private String ounces;
 
     @SerializedName("name")
     @Expose
+    @ColumnInfo(name = "name")
     private String name;
 
     @SerializedName("style")
     @Expose
+    @ColumnInfo(name = "style")
     private String style;
 
+    @PrimaryKey
     @SerializedName("id")
     @Expose
+    @ColumnInfo(name = "id")
+    @NonNull
     private String id;
 
     @SerializedName("ibu")
     @Expose
+    @ColumnInfo(name = "ibu")
     private String ibu;
+
+    public Beer() {
+    }
+
+    protected Beer(Parcel in) {
+        abv = in.readString();
+        ounces = in.readString();
+        name = in.readString();
+        style = in.readString();
+        id = in.readString();
+        ibu = in.readString();
+    }
+
+    public static final Creator<Beer> CREATOR = new Creator<Beer>() {
+        @Override
+        public Beer createFromParcel(Parcel in) {
+            return new Beer(in);
+        }
+
+        @Override
+        public Beer[] newArray(int size) {
+            return new Beer[size];
+        }
+    };
 
     public String getAbv ()
     {
@@ -41,7 +85,7 @@ public class Beer
     {
         this.abv = abv;
     }
-
+    @Bindable
     public String getOunces ()
     {
         return ounces;
@@ -51,7 +95,7 @@ public class Beer
     {
         this.ounces = ounces;
     }
-
+    @Bindable
     public String getName ()
     {
         return name;
@@ -61,7 +105,7 @@ public class Beer
     {
         this.name = name;
     }
-
+    @Bindable
     public String getStyle ()
     {
         return style;
@@ -71,7 +115,7 @@ public class Beer
     {
         this.style = style;
     }
-
+    @Bindable
     public String getId ()
     {
         return id;
@@ -81,9 +125,11 @@ public class Beer
     {
         this.id = id;
     }
-
+    @Bindable
     public String getIbu ()
     {
+        if(ibu.isEmpty())
+            return "0";
         return ibu;
     }
 
@@ -96,5 +142,20 @@ public class Beer
     public String toString()
     {
         return "ClassPojo [abv = "+abv+", ounces = "+ounces+", name = "+name+", style = "+style+", id = "+id+", ibu = "+ibu+"]";
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(abv);
+        dest.writeString(ounces);
+        dest.writeString(name);
+        dest.writeString(style);
+        dest.writeString(id);
+        dest.writeString(ibu);
     }
 }

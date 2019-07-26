@@ -1,17 +1,15 @@
-package com.example.tmdbclient.Model;
+package com.example.tmdbclient.model;
 
 import android.app.Application;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.example.tmdbclient.Beer;
-import com.example.tmdbclient.Service.BeerDataService;
-import com.example.tmdbclient.Service.RetrofitInstance;
+import com.example.tmdbclient.service.BeerDataService;
+import com.example.tmdbclient.service.RetrofitInstance;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
