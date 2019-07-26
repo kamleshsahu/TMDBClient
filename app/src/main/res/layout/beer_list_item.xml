@@ -10,79 +10,140 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:adjustViewBounds="true">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cvMovie"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:elevation="3dp"
-        card_view:cardCornerRadius="1dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:elevation="4dp"
+        card_view:cardCornerRadius="5dp">
 
-        <RelativeLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <!--<ImageView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="200dp"-->
-                <!--android:id="@+id/ivMovie"-->
-                <!--bind:poster_path="@{movie.poster_path}"-->
-                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
-                <!--android:scaleType="fitXY"/>-->
-
-
-            <TextView
-                android:id="@+id/tvName"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/beer"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:text="@{beer.name}"
-                android:textColor="@color/colorAccent"
-                android:textSize="12dp" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvName"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:text="@{beer.style}"
-                android:textColor="@color/colorAccent"
-                android:textSize="12dp" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{beer.name}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/tvAbv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:layout_below="@+id/tvStyle"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:text="@{beer.abv}"
-                android:textColor="@color/colorAccent"
-                android:textSize="12dp"/>
+                    <TextView
+                        android:id="@+id/tvStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{beer.style}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
 
-            <TextView
-                android:id="@+id/tvIbu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvAbv"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:text="@{beer.ibu}"
-                android:textColor="@color/colorAccent"
-                android:textSize="12dp"/>
 
-        </RelativeLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alcohol Content : "
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp"/>
+                    <TextView
+                        android:id="@+id/tvAbv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvStyle"
+                        android:text="@{beer.abv}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Size : "
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp"/>
+                    <TextView
+                        android:id="@+id/tvSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{beer.ounces}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IBU : "
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp"/>
+                    <TextView
+                        android:id="@+id/tvIbu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{beer.ibu}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_add_circle_black_24dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+
+            </LinearLayout>
+        </LinearLayout>
 
 
     </android.support.v7.widget.CardView>

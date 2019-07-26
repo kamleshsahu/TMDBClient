@@ -4,10 +4,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textSize="25sp"
+    android:textSize="15sp"
+    android:fontFamily="sans-serif-smallcaps"
     android:gravity="center"
-    android:textColor="#F9FCF9"
-    android:padding="15dip"
-    android:layout_margin="15dip"
-    android:background="@color/colorPrimary"
+    android:layout_margin="5dp"
+    android:padding="7dp"
     />
+
