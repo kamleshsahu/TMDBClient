@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">TMDBClient</string>
-    <string name="api_key">0c845759877c37024e74407955ed2de2</string>
+    <string name="app_name">Crafts Brewery</string>
     <string name="title_activity_movie">MovieActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

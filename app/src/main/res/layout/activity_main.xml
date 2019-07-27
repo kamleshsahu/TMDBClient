@@ -36,6 +36,8 @@
             android:layout_height="wrap_content">
             <android.support.v7.widget.SearchView
                 android:layout_width="match_parent"
+                app:queryHint="search Beer..."
+                app:defaultQueryHint="search Beer..."
                 android:id="@+id/searchBeer"
                 android:layout_marginBottom="00dp"
                 android:layout_height="wrap_content"/>
